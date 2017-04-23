@@ -1,3 +1,5 @@
+var exports = module.exports = {};
+
 var prompt = require('prompt');
 
 var properties = [
