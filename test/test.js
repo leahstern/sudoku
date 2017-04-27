@@ -7,13 +7,13 @@ describe('Array', function() {
   });
 });
 
-var ask = require('./sudoku.js');
+var ask = require('../entry.js');
 // ask is promise-returning stdin question
 var bddStdin = require('bdd-stdin');
 describe('ask', function () {
   it('asks one question', function () {
     bddStdin('012345678');
-    return ask('type "answer"')
+    return ask.entry('type "answer"')
       .then(function (response) {
         console.assert(response === 'answer');
       });
