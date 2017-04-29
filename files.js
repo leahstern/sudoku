@@ -9,13 +9,19 @@
   }
 */
   exports.read = async function read(filename){
-    let data = await fs.readFileAsync(filename, 'UTF-8');
-      console.log(data)
-      //return data
-    }
+    //returns JSON object
+    try{
+      let data = await fs.readFileAsync(filename, 'UTF-8');
+      console.log(`Reading from file ${filename}`);
+      return JSON.parse(data);
+    } catch (err) {
+        console.log("Error reading file");
+      }
+  }
 
   exports.write = function write(filename,data){
-    fs.writeFileAsync(filename, data).then(function(data){
+    //expects JSON object as data
+    fs.writeFileAsync(filename, JSON.stringify(data)).then(function(data){
       //written to disk
     })
   }
