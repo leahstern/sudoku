@@ -1,21 +1,29 @@
 var assert = require('assert');
+var should = require('should')
 describe('Array', function() {
   describe('#indexOf()', function() {
     it('should return -1 when the value is not present', function() {
-      assert.equal(-1, [1,2,3].indexOf(4));
+      //assert.equal(-1, [1,2,3].indexOf(4));
+      ([1,2,3].indexOf(4)).should.equal(-1)
     });
   });
 });
 
-var ask = require('../entry.js');
-// ask is promise-returning stdin question
+var entry = require('../sudoku.js');
+// entry is promise-returning stdin question
 var bddStdin = require('bdd-stdin');
-describe('ask', function () {
+pry = require('pryjs')
+var Promise = require('bluebird');
+Promise.promisifyAll(entry);
+
+describe('Entry', function () {
   it('asks one question', function () {
+    //eval(pry.it)
     bddStdin('012345678');
-    return ask.entry('type "answer"')
+    return entry.entryAsync('type "012345678"')
       .then(function (response) {
-        console.assert(response === 'answer');
+        (response).should.equal('answer');
       });
+      done();
   });
 });
