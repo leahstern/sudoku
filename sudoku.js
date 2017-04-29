@@ -1,3 +1,5 @@
-var entry = require('./entry.js')
+//var entry = require('./entry.js')
+var sfs = require('./files.js')
 
-entry.entry();
+//entry.entry();
+sfs.read('./sample.json');
