@@ -21,7 +21,7 @@
 
   exports.write = function write(filename,data){
     //expects JSON object as data
-    fs.writeFileAsync(filename, JSON.stringify(data)).then(function(data){
+    return fs.writeFileAsync(filename, JSON.stringify(data)).then(function(data){
       //written to disk
     })
   }
