@@ -100,3 +100,8 @@ describe('Files', function() {
   })
 
 });
+
+describe('validate', function(){
+  it("should accept sample solution");
+  it("should reject sample puzzle");
+});
