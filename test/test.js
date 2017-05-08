@@ -1,8 +1,10 @@
 var should = require('chai').should();
 var expect = require('chai').expect;
 var fs = require('fs');
-var sfs = require('../tools/files.js') //sudoku file system
-var validator = require('../tools/validator.js')
+var rewire = require('rewire');
+var sfs = rewire('../tools/files.js'); //sudoku file system
+var sinon = require('sinon');
+var validator = require('../tools/validator.js');
 var sampleData = {
     "version": "http://ipuz.org/v2",
     "kind": [ "http://ipuz.org/sudoku#1" ],
@@ -38,6 +40,12 @@ describe('Array', function() {
 });
 
 describe('Files', function() {
+  beforeEach(function(){
+    this.console = {
+      log: sinon.spy() //"Reading from file ./sample.json"
+    }
+    sfs.__set__("console", this.console);
+  });
   describe('write', function() {
     after(function(){
       fs.unlink('./sample2.json',function callbackNothing(){});
@@ -50,15 +58,17 @@ describe('Files', function() {
   })
   describe('read', function(){
     it('should match sample data', function(){
+        var _this = this;
         return sfs.read('./sample.json').then(function success(data){
           JSON.stringify(data).should.equal(JSON.stringify(sampleData));
+          expect(_this.console.log.callCount).to.equal(1);
         });
     })
   })
 
 });
 
-describe('validate', function(){
+describe('Validator', function(){
   it("should accept sample solution", function(){
       var solved = validator.solved(sampleData.solution);
       expect(solved).to.be.true;
