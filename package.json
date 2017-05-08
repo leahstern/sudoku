@@ -13,6 +13,8 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
     "pryjs": "^1.0.3",
     "rewire": "^2.5.2",
     "should": "^11.2.1",
