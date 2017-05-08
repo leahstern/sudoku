@@ -34,7 +34,7 @@ describe('Files', function() {
     it('should create json file', function(){
       var sfs = require('../files.js')
       var fs = require('fs');
-      return sfs.write('./sample.json',{
+      return sfs.write('./sample2.json',{
           "version": "http://ipuz.org/v2",
           "kind": [ "http://ipuz.org/sudoku#1" ],
           "charset": "123456789",
@@ -58,7 +58,7 @@ describe('Files', function() {
                         [ 1, 2, 3, 4, 7, 9, 8, 6, 5 ],
                         [ 7, 5, 9, 1, 8, 6, 3, 4, 2 ] ]
       }).then(function success(){
-        fs.statSync('./sample.json').size.should.equal(487);
+        fs.statSync('./sample2.json').size.should.equal(487);
       //}, function failure(){
       //  console.log ('Error writing to file');
       });
