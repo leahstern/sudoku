@@ -46,8 +46,8 @@ describe('Files', function() {
     })
   })
   describe('read', function(){
-    it('should match test data', function(){
-        sfs.read('./sample.json').then(function success(data){
+    it('should match sample data', function(){
+        return sfs.read('./sample.json').then(function success(data){
           JSON.stringify(data).should.equal(JSON.stringify(sampleData));
         });
     })
