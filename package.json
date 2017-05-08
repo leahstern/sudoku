@@ -1,0 +1,36 @@
+{
+  "name": "sudoku",
+  "version": "1.0.0",
+  "description": "A set of tools for working with sudoku puzzles.",
+  "main": "sudoku.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "bdd-stdin": "^0.2.0",
+    "bluebird": "^3.5.0",
+    "prompt": "^1.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "pryjs": "^1.0.3",
+    "should": "^11.2.1"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leahstern/sudoku.git"
+  },
+  "keywords": [
+    "sudoku",
+    "puzzle"
+  ],
+  "author": "Leah Stern",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leahstern/sudoku/issues"
+  },
+  "homepage": "https://github.com/leahstern/sudoku#readme"
+}

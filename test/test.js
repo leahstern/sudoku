@@ -1,39 +1,20 @@
 var should = require('chai').should();
+var expect = require('chai').expect;
+var fs = require('fs');
+var sfs = require('../tools/files.js') //sudoku file system
+
 
 describe('Array', function() {
   describe('#indexOf()', function() {
     it('should return -1 when the value is not present', function() {
-      //assert.equal(-1, [1,2,3].indexOf(4));
       ([1,2,3].indexOf(4)).should.be.equal(-1)
     });
   });
 });
-/*
-var entry = require('../sudoku.js');
-// entry is promise-returning stdin question
-var bddStdin = require('bdd-stdin');
-pry = require('pryjs')
-var Promise = require('bluebird');
-Promise.promisifyAll(entry);
-
-describe('Entry', function () {
-  it('asks one question', function () {
-    //eval(pry.it)
-    bddStdin('012345678');
-    return entry.entryAsync('type "012345678"')
-      .then(function (response) {
-        (response).should.equal('answer');
-      });
-      done();
-  });
-});
-*/
 
 describe('Files', function() {
   describe('write', function() {
     it('should create json file', function(){
-      var sfs = require('../files.js')
-      var fs = require('fs');
       return sfs.write('./sample2.json',{
           "version": "http://ipuz.org/v2",
           "kind": [ "http://ipuz.org/sudoku#1" ],
@@ -59,8 +40,6 @@ describe('Files', function() {
                         [ 7, 5, 9, 1, 8, 6, 3, 4, 2 ] ]
       }).then(function success(){
         fs.statSync('./sample2.json').size.should.equal(487);
-      //}, function failure(){
-      //  console.log ('Error writing to file');
       });
     })
   })
@@ -93,8 +72,6 @@ describe('Files', function() {
                             [ 1, 2, 3, 4, 7, 9, 8, 6, 5 ],
                             [ 7, 5, 9, 1, 8, 6, 3, 4, 2 ] ]
           }));
-        //},function failure(){
-        //  console.log('Error reading file');
         });
     })
   })
@@ -102,6 +79,8 @@ describe('Files', function() {
 });
 
 describe('validate', function(){
-  it("should accept sample solution");
+  it("should accept sample solution", function(){
+
+  });
   it("should reject sample puzzle");
 });
