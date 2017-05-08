@@ -39,6 +39,9 @@ describe('Array', function() {
 
 describe('Files', function() {
   describe('write', function() {
+    after(function(){
+      fs.unlink('./sample2.json',function callbackNothing(){});
+    });
     it('should create json file', function(){
       return sfs.write('./sample2.json',sampleData).then(function success(){
         fs.statSync('./sample2.json').size.should.equal(487);
