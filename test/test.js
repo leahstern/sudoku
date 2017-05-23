@@ -28,13 +28,13 @@ var sampleData = {
                   [ 4, 8, 6, 2, 3, 5, 1, 9, 7 ],
                   [ 1, 2, 3, 4, 7, 9, 8, 6, 5 ],
                   [ 7, 5, 9, 1, 8, 6, 3, 4, 2 ] ]
-}
+};
 
 
 describe('Array', function() {
   describe('#indexOf()', function() {
     it('should return -1 when the value is not present', function() {
-      ([1,2,3].indexOf(4)).should.be.equal(-1)
+      ([1,2,3].indexOf(4)).should.be.equal(-1);
     });
   });
 });
@@ -43,7 +43,7 @@ describe('Files', function() {
   beforeEach(function(){
     this.console = {
       log: sinon.spy() //"Reading from file ./sample.json"
-    }
+    };
     sfs.__set__("console", this.console);
   });
   describe('write', function() {
@@ -54,8 +54,8 @@ describe('Files', function() {
       return sfs.write('./sample2.json',sampleData).then(function success(){
         fs.statSync('./sample2.json').size.should.equal(487);
       });
-    })
-  })
+    });
+  });
   describe('read', function(){
     it('should match sample data', function(){
         var _this = this;
@@ -63,8 +63,8 @@ describe('Files', function() {
           JSON.stringify(data).should.equal(JSON.stringify(sampleData));
           expect(_this.console.log.callCount).to.equal(1);
         });
-    })
-  })
+    });
+  });
 
 });
 

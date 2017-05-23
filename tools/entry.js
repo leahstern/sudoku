@@ -25,4 +25,4 @@ function onErr(err) {
   console.log(err);
   return 1;
 }
-}
+};

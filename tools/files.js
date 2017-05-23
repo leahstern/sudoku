@@ -23,5 +23,5 @@
     //expects JSON object as data
     return fs.writeFileAsync(filename, JSON.stringify(data)).then(function(data){
       //written to disk
-    })
-  }
+    });
+  };
