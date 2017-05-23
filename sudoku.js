@@ -1,5 +1,5 @@
 //var entry = require('./entry.js')
-var sfs = require('./files.js')
+var sfs = require('.tools/files.js')
 
 var data = null;
 //entry.entry();
